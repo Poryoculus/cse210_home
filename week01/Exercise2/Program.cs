@@ -53,6 +53,9 @@ class Program
                 Console.WriteLine("+");
             }
         }
+        else {
+            Console.WriteLine(" ");
+        }
         
         //print if the student passed or not
         if (letter == "A" || letter == "B" || letter == "C")

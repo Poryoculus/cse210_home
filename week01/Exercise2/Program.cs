@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.Write("What is your grade porcentage? ");
-        int grade = int.parse((Console.ReadLine()));
+        int grade = int.Parse(Console.ReadLine());
 
 
         //giving a letter to the score 
@@ -45,7 +45,7 @@ class Program
         }
         else
         {
-            Console.WriteLine("You failed the class, you hve to try harder the next time");
+            Console.WriteLine("You failed the class, you have to try harder the next time");
 
         }
     }

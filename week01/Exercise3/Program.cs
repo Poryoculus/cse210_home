@@ -8,14 +8,13 @@ class Program
         do 
         {
             
-            Console.Write("What is the magic number?: ");
-
-            int magicnumber = int.Parse(Console.ReadLine());
+            Random randomGenerator = new Random();
+            int magicnumber = randomGenerator.Next(1, 101);
             int guess = 0;
             int attempts = 0;
             while (guess != magicnumber)
             {
-                Console.Write("What is you magic number?: ");
+                Console.Write("What is you guess?: ");
                 guess = int.Parse(Console.ReadLine());
                 attempts += 1;
                 if (guess < magicnumber)

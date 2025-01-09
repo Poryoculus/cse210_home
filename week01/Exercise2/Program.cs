@@ -35,9 +35,25 @@ class Program
             letter = "F";
         }
 
-        Console.WriteLine($"You grade is a {letter}");
-       
+        Console.Write($"You grade is a {letter}");
 
+        //consider if the grade is + or -
+
+        if (letter != "A" && letter != "F")
+        {
+            if (grade % 10 <= 6)
+
+            {
+                Console.WriteLine("-");
+            }
+            
+            else 
+            
+            {
+                Console.WriteLine("+");
+            }
+        }
+        
         //print if the student passed or not
         if (letter == "A" || letter == "B" || letter == "C")
         {

@@ -28,32 +28,23 @@ public class Journal
     }
     public void SaveToJson(string filename)
 {
-    try
-    {
-        if (_entries.Count == 0)
-        {
-            Console.WriteLine("No entries to save.");
-            return;
-        }
-
-        string json = JsonSerializer.Serialize(_entries, new JsonSerializerOptions { WriteIndented = true });
-
-        using (FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write))
-        using (StreamWriter writer = new StreamWriter(fs))
-        {
-            writer.Write(json);
-        }
-
-        Console.WriteLine($"Journal saved to {filename}.");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error saving journal: {ex.Message}");
-    }
+    
+    string json = JsonSerializer.Serialize(_entries, new JsonSerializerOptions { WriteIndented = true });
+    File.WriteAllText(filename, json);
+    Console.WriteLine($"Journal saved to {filename}.");
 }
     public void LoadFromFile(string file)
     {
+        string filename = file;
+        string[] lines = File.ReadAllLines(filename);
 
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
+
+            string firstName = parts[0];
+            string lastName = parts[1];
+        }
     }
 
 }

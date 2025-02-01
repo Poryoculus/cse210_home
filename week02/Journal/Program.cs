@@ -48,6 +48,7 @@ class Program
             //Load the Journal text
             if (userPrompt == 3)
             {
+                
                 string fileToLoad = Console.ReadLine();
                 theJournal.LoadFromFile(fileToLoad);
                 

@@ -32,19 +32,15 @@ public class Journal
     string json = JsonSerializer.Serialize(_entries, new JsonSerializerOptions { WriteIndented = true });
     File.WriteAllText(filename, json);
     Console.WriteLine($"Journal saved to {filename}.");
+    
 }
-    public void LoadFromFile(string file)
+    public List<Entry> LoadFromFile(string file)
     {
-        string filename = file;
-        string[] lines = File.ReadAllLines(filename);
 
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(",");
+        using FileStream json = File.OpenRead(file);
+        List<Entry> entries = JsonSerializer.Deserialize<List<Entry>>(json);
 
-            string firstName = parts[0];
-            string lastName = parts[1];
-        }
+        return entries ?? new List<Entry>();
     }
-
 }
+

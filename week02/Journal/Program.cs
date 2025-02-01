@@ -17,7 +17,7 @@ class Program
         while (userPrompt != 5)
         {
             //Menu options
-            Console.WriteLine("Welcome to your Personal Journal!");
+            Console.WriteLine("\nWelcome to your Personal Journal!");
             Console.WriteLine("Please select one of the following choices: ");
             Console.WriteLine("1.- Write");
             Console.WriteLine("2.- Display");
@@ -48,9 +48,10 @@ class Program
             //Load the Journal text
             if (userPrompt == 3)
             {
-                
+                Console.WriteLine("Enter the filename of the journal you want to load: ");
                 string fileToLoad = Console.ReadLine();
-                theJournal.LoadFromFile(fileToLoad);
+                theJournal._entries = theJournal.LoadFromFile(fileToLoad);
+                
                 
             }
 
@@ -58,7 +59,7 @@ class Program
 
             if (userPrompt == 4)
             {
-                
+                Console.WriteLine("Enter the filename to save the journal: ");
                 string nameToSave = Console.ReadLine();
                 theJournal.SaveToJson(nameToSave);
             }

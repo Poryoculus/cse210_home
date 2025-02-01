@@ -48,7 +48,7 @@ class Program
             //Load the Journal text
             if (userPrompt == 3)
             {
-                Console.WriteLine("Enter the filename of the journal you want to load: ");
+                Console.WriteLine("Enter the filename of the journal you want to load (remember to add {.json} at the end of the filename): ");
                 string fileToLoad = Console.ReadLine();
                 theJournal._entries = theJournal.LoadFromFile(fileToLoad);
                 
@@ -59,7 +59,7 @@ class Program
 
             if (userPrompt == 4)
             {
-                Console.WriteLine("Enter the filename to save the journal: ");
+                Console.WriteLine("Enter the filename to save the journal (remember to add {.json} at the end of the filename): ");
                 string nameToSave = Console.ReadLine();
                 theJournal.SaveToJson(nameToSave);
             }

@@ -9,7 +9,7 @@ class Program
 
         //variables
         Journal theJournal = new Journal();
-        Entry anEntry = new Entry();
+        
         
         int userPrompt = 0;
 
@@ -33,8 +33,9 @@ class Program
 
             if (userPrompt == 1)
             {
-                
+                Entry anEntry = new Entry();
                 anEntry.Display();
+
                 theJournal.AddEntry(anEntry);
 
             }
@@ -47,14 +48,18 @@ class Program
             //Load the Journal text
             if (userPrompt == 3)
             {
-
+                string fileToLoad = Console.ReadLine();
+                theJournal.LoadFromFile(fileToLoad);
+                
             }
 
             //Save a Journal
 
             if (userPrompt == 4)
             {
-
+                
+                string nameToSave = Console.ReadLine();
+                theJournal.SaveToJson(nameToSave);
             }
 
             if (!new int[] { 1, 2, 3, 4, 5 }.Contains(userPrompt))

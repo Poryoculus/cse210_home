@@ -10,11 +10,10 @@ class Program
         List<Scripture> ListOfScriptures = lector.LoadScriptures("scriptures.json");
         Random rand = new Random();
         int index = rand.Next(ListOfScriptures.Count);
-
+        
         
         Scripture escritura = ListOfScriptures[index];
         bool completelyHidden = escritura.isCompletelyHidden();
-
         escritura.GetDisplayAll();
 
         //program
@@ -23,14 +22,18 @@ class Program
         string userInput = Console.ReadLine();
         while (completelyHidden != true)
         {
+            Console.Clear();
         if (userInput == "")
         {
             escritura.hideWords();
-            
             escritura.GetDisplayAll();
+
         }
 
-        
+        if (userInput.ToLower() == "quit")
+        {
+            break;
+        }
         if (escritura.isCompletelyHidden())
             {
                 break;
@@ -38,6 +41,7 @@ class Program
 
         Console.WriteLine("\npress enter to continue or type 'quit' to finish: ");
         userInput = Console.ReadLine();
+        
         }
     }
 } 

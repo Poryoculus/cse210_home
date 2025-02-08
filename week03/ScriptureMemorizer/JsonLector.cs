@@ -1,26 +1,51 @@
 using System; 
-using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
-using System.Text.Json;
 
 public class JsonLector
 {
     public List<Scripture> LoadScriptures(string file)
     {
-        try
-        {
+        
             var json = File.ReadAllText(file);
-            var scriptures = JsonConvert.DeserializeObject<List<Scripture>>(json);
+
+            
+            var scriptureDataList = JsonConvert.DeserializeObject<List<Df>>(json);
+            
+            
+            List<Scripture> scriptures = new List<Scripture>();
+            foreach (var item in scriptureDataList)
+            {
+                Reference reference;
+                if (item.Reference.EndVerse == null)
+                    {
+                        reference = new Reference(item.Reference.Book, item.Reference.Chapter, item.Reference.StartVerse);
+                    }
+                else
+                    {
+                        reference = new Reference(item.Reference.Book, item.Reference.Chapter, item.Reference.StartVerse, item.Reference.EndVerse.Value);
+                    }
+                var scripture = new Scripture(reference, item.ScriptureText);
+                
+                scriptures.Add(scripture);
+            }
 
             return scriptures;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error loading scriptures: {ex.Message}");
-            return new List<Scripture>();
-        }
+        
     }
 
 }
 
+public class Df
+{
+    public RefData Reference { get; set; }
+    public string ScriptureText { get; set; }
+}
+
+public class RefData
+{
+    public string Book { get; set; }
+    public int Chapter { get; set; }
+    public int StartVerse { get; set; }
+    public int? EndVerse { get; set; } 
+}

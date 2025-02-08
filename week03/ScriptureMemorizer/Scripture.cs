@@ -61,7 +61,7 @@ public class Scripture
                 hiddenWords++;
             }
         }
-        if (hiddenWords == wordCount)
+        if (hiddenWords == wordCount + 2 || hiddenWords == wordCount + 3)
         {
             return true;
         }

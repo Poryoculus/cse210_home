@@ -21,12 +21,19 @@ public class Scripture
     public void hideWords()
     {
         Random randomFactor = new Random();
-        int wordCount = _scripture.Count;
+        int wordsToHide = 2;
+        
         int hiddenWords = 0;
 
-        while (hiddenWords != wordCount)
+        while (hiddenWords < wordsToHide)
         {
-            int index = randomFactor.Next(wordCount);
+            int index;
+            do
+            {
+                index = randomFactor.Next(_scripture.Count);
+            }
+            while (_scripture[index].IsHidden());
+
             Word selectedWord = _scripture[index];
             selectedWord.HideWord();
             hiddenWords++;

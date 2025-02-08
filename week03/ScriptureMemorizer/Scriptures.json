@@ -1,0 +1,82 @@
+[
+    {
+      "reference": {
+        "book": "John",
+        "chapter": 3,
+        "verse": 16
+      },
+      "scriptureText": "For God so loved the world that He gave His only begotten Son, that whosoever believeth in Him should not perish, but have everlasting life."
+    },
+    {
+      "reference": {
+        "book": "Psalm",
+        "chapter": 23,
+        "verse": 1
+      },
+      "scriptureText": "The Lord is my shepherd; I shall not want."
+    },
+    {
+      "reference": {
+        "book": "Matthew",
+        "chapter": 7,
+        "verse": 7
+      },
+      "scriptureText": "Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you."
+    },
+    {
+      "reference": {
+        "book": "Philippians",
+        "chapter": 4,
+        "verse": 13
+      },
+      "scriptureText": "I can do all things through Christ who strengthens me."
+    },
+    {
+      "reference": {
+        "book": "Romans",
+        "chapter": 8,
+        "verse": 28
+      },
+      "scriptureText": "And we know that in all things God works for the good of those who love Him, who have been called according to His purpose."
+    },
+    {
+      "reference": {
+        "book": "Isaiah",
+        "chapter": 40,
+        "verse": 31
+      },
+      "scriptureText": "But they who wait for the Lord shall renew their strength; they shall mount up with wings like eagles; they shall run and not be weary; they shall walk and not faint."
+    },
+    {
+      "reference": {
+        "book": "Jeremiah",
+        "chapter": 29,
+        "verse": 11
+      },
+      "scriptureText": "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope."
+    },
+    {
+      "reference": {
+        "book": "1 Corinthians",
+        "chapter": 13,
+        "verse": 13
+      },
+      "scriptureText": "And now these three remain: faith, hope and love. But the greatest of these is love."
+    },
+    {
+      "reference": {
+        "book": "Hebrews",
+        "chapter": 11,
+        "verse": 1
+      },
+      "scriptureText": "Now faith is the substance of things hoped for, the evidence of things not seen."
+    },
+    {
+      "reference": {
+        "book": "Revelation",
+        "chapter": 21,
+        "verse": 4
+      },
+      "scriptureText": "He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away."
+    }
+  ]

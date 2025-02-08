@@ -17,7 +17,10 @@ public class Word
     }
     public void HideWord()
     {
-        _isHidden = true;
+        if (!_isHidden) 
+        {
+            _isHidden = true;
+        }
     }
     public bool IsHidden()
     {

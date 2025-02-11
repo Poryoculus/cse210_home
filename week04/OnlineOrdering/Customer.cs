@@ -1,6 +1,7 @@
+using System.Runtime.CompilerServices;
+
 public class Customer
 {
-    private string _name;
-    private Address _address;
-    
+    public string _name;
+    public Address _address;
 }

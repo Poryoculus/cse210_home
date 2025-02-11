@@ -27,15 +27,19 @@ class Program
         order._products.Add(product3);
 
         // Display Order Details
+        Console.WriteLine("\n====================");
         Console.WriteLine("\nPacking Label:");
         order.GetPackingLabel();
 
+        Console.WriteLine("\n====================");
         Console.WriteLine("\nShipping Label:");
         order.GetShippingLabel();
 
         // Display Total Cost
         Console.WriteLine($"\nTotal Order Cost: ${order.CalculateTotalCost():0.00}");
 
+
+        Console.WriteLine("\n====================");
         //I Created all the Code except for the variables to introduce in the main program,
         //I asked  chatgpt for ideas of products and name to save some time.
     }

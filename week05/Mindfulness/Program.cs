@@ -35,8 +35,8 @@ class Program
             //Reflection Activity
             else if (UserPrompt == 2)
             {   
-                List<string> prompts = new List<string> { "What did you learn today?", "How do you feel about your progress?" };
-                List<string> questions = new List<string> { "How did you overcome challenges?", "What did you learn from your mistakes?" };
+                List<string> prompts = new List<string>();
+                List<string> questions = new List<string>();
 
                 
                 int duration = 30; 
@@ -46,6 +46,7 @@ class Program
                 // this is chatgpt way to create an instance, i just made it to save time, because my code resolve the 
                 //problem of biggest list of prompts and questions.
                 Reflection reflectionActivity = new Reflection(prompts, questions, duration, name, description);
+                
                 reflectionActivity.DisplayWelcomeMessage();
                 reflectionActivity.RunActivity();
             }
@@ -53,7 +54,17 @@ class Program
             //Listing Activity
             else if (UserPrompt == 3)
             {
+                List<string> prompts = new List<string>();
+                int count = 0;
+                int duration = 0;
+                List<string> responses = new List<string>();
                 string name = "Listing Activity";
+                string description = "This activity will help you reflect on meaningful experiences by prompting you to list as many relevant responses as possible within a set time. It encourages quick thinking and deeper self-awareness.";
+
+                Listing listingActivity = new Listing(prompts,count, responses, duration, name, description);
+
+                listingActivity.DisplayWelcomeMessage();    
+                listingActivity.RunActivity();
             }
 
             //Quit.
@@ -70,7 +81,6 @@ class Program
             }
             
         }
-        Activity prueba = new Activity(20, "rodrigo", "askdalskd");
         
     }
 }

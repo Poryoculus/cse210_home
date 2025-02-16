@@ -42,7 +42,7 @@ public class Activity
         Console.WriteLine($"Welcome to the {_name}!");
         Console.WriteLine($"\nThis activity will help you {_description}");
 
-        Console.WriteLine("\nHow long, in seconds, would you like for your session?");
+        Console.WriteLine("\nHow long, in seconds, would you like for your session?(it must be greater than 10 seconds): ");
         _duration = Console.Read();
     }
 

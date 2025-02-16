@@ -19,15 +19,19 @@ public class Reflection : Activity
     public void RunActivity()
     {
 
+        PromptGenerator();
+        QuestionsGenerator();
+
+
         Console.Clear();
         Console.WriteLine("Get Ready...");
         DisplaySpinner(2);
         Console.Clear();
 
         Console.WriteLine("Consider the following prompt: ");
-        Console.Write("----");
+        Console.Write(" ---- ");
         DisplayPrompt();
-        Console.Write("----");
+        Console.Write(" ---- ");
 
         Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
 
@@ -56,7 +60,14 @@ public class Reflection : Activity
 
         Console.Clear();
         
+        if (_duration < 10)
+        {
+            Console.WriteLine("Session duration must be greater than ten.");
+            return;
+        }
+
         int sessionQuestions = (int)Math.Ceiling(_duration / 10.0);
+
         while (sessionQuestions != 0)
         { 
             DisplayQuestion();

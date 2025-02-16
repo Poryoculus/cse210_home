@@ -16,13 +16,17 @@ public class Breathing : Activity
     // run Activity
     public void RunActivity()
     {
-        Console.Write("How long, in seconds, would you like for your session?");
-        _duration = int.Parse(Console.ReadLine());
 
         Console.Clear();
         Console.WriteLine("Get Ready...");
         DisplaySpinner(3);
         Console.Clear();
+
+        if (_duration < 10 )
+        {
+            Console.WriteLine("Session duration must be greater than ten.");
+            return;
+        }
         int sessionPeriods = (int)Math.Ceiling(_duration / 10.0);
         while (sessionPeriods != 0)
         {

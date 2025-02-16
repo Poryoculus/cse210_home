@@ -37,11 +37,11 @@ public class Activity
 
     public void DisplayWelcomeMessage()
     {
-        Console.WriteLine($"Welcome to the {_name}");
-        DisplaySpinner(1);
-        Console.WriteLine($"This activity will help you {_description}");
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_name}!");
+        Console.WriteLine($"\nThis activity will help you {_description}");
 
-        Console.WriteLine("How long, in seconds, would you like for your session?");
+        Console.WriteLine("\nHow long, in seconds, would you like for your session?");
         _duration = Console.Read();
     }
 

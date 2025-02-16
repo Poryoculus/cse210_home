@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 public class Reflection : Activity
 {
@@ -19,6 +20,48 @@ public class Reflection : Activity
     {
         Console.WriteLine("How long, in seconds, would you like for your session?");
         _duration = int.Parse(Console.ReadLine());
+
+        Console.Clear();
+        Console.WriteLine("Get Ready...");
+        DisplaySpinner(2);
+        Console.Clear();
+
+        Console.WriteLine("Consider the following prompt: ");
+        Console.WriteLine("----");
+        DisplayPrompt();
+        Console.WriteLine("----");
+
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+
+        string userInput = "";
+
+        while (true)
+        {
+            userInput = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(userInput))
+            {
+                Console.WriteLine("Now ponder on each of the following questions as they relate to this experience:");
+                
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Please leave the input empty to proceed.");
+            }
+        }
+
+        //continue the acitivity
+
+        Console.Write("You may begin in:");
+        PauseCountDown(4);
+
+        Console.Clear();
+        DisplayQuestion();
+        DisplaySpinner(15);
+        DisplayQuestion();
+
+        DisplayClosingMessage();
     }
     
     public string GetRandomPrompt()
@@ -64,6 +107,6 @@ public class Reflection : Activity
     public void DisplayQuestion()
     {
         string question = GetRandomQuestion();
-        Console.WriteLine(question);
+        Console.WriteLine($"> {question}");
     }
 }

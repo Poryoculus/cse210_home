@@ -27,6 +27,7 @@ class Program
             if (UserPrompt == 1)
             {
                 Breathing myBreathing = new Breathing(30, "Breathing Activity", "This activity will help you relax and focus by guiding you through controlled breathing exercises,promoting a sense of calm and reducing stress.");
+                myBreathing.DisplayWelcomeMessage();
                 myBreathing.RunActivity();
 
             }
@@ -45,7 +46,7 @@ class Program
                 // this is chatgpt way to create an instance, i just made it to save time, because my code resolve the 
                 //problem of biggest list of prompts and questions.
                 Reflection reflectionActivity = new Reflection(prompts, questions, duration, name, description);
-                
+                reflectionActivity.DisplayWelcomeMessage();
                 reflectionActivity.RunActivity();
             }
 

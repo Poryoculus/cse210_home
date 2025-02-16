@@ -49,7 +49,8 @@ public class Activity
     {
         Console.WriteLine("Well Done!!");
         DisplaySpinner(2);
-        Console.WriteLine($"You completed another 30 seconds of the {_name}");
+        Console.WriteLine($"You completed another {_duration} seconds of the {_name}");
+        Thread.Sleep(5000);
     }
 
     public void PauseCountDown(int seconds)

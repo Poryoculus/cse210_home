@@ -27,11 +27,11 @@ public class Reflection : Activity
         Console.Clear();
 
         Console.WriteLine("Consider the following prompt: ");
-        Console.WriteLine("----");
+        Console.Write("----");
         DisplayPrompt();
-        Console.WriteLine("----");
+        Console.Write("----");
 
-        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
 
         string userInput = "";
 
@@ -57,10 +57,14 @@ public class Reflection : Activity
         PauseCountDown(4);
 
         Console.Clear();
-        DisplayQuestion();
-        DisplaySpinner(15);
-        DisplayQuestion();
-
+        int sessionQuestions = (int)Math.Ceiling(_duration / 15.0);
+        while (sessionQuestions != 0)
+        {
+            DisplayQuestion();
+            DisplaySpinner(10);
+            sessionQuestions -= 1;
+            Console.WriteLine(" ");
+        }
         DisplayClosingMessage();
     }
     
@@ -85,7 +89,7 @@ public class Reflection : Activity
     public void DisplayPrompt()
     {
         string prompt = GetRandomPrompt();
-        Console.WriteLine(prompt);
+        Console.Write(prompt);
     }
     public string GetRandomQuestion()
     {

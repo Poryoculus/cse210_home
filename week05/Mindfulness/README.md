@@ -45,7 +45,6 @@
 ## Behaviors:
 - GetRandomPrompt()
 - GetRandomQuestion()
-- SaveReflections() **Exceed Requirements
 - DisplayPrompt()
 - DisplayQuestion()
 - RunActivity()

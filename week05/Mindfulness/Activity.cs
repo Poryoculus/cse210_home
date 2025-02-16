@@ -4,8 +4,8 @@ using System.Security.Principal;
 public class Activity
 {
     //activity variable 
-    protected int _duration;
-    private string _name; 
+    public int _duration;
+    protected string _name; 
     private string _description;
 
     //Constructor
@@ -19,7 +19,7 @@ public class Activity
     public void DisplaySpinner(int time)
     {
     
-       char[] spinnerChars = { '⏳', '⌛' };
+       char[] spinnerChars = {'⏳', '⌛'};
        int timeElapsed = 0;
        int index = 0;
        int SpinnerDuration = time;
@@ -31,6 +31,7 @@ public class Activity
 
             index = (index + 1) % spinnerChars.Length; // Cycle through spinner chars
             timeElapsed += 200;
+            Console.Write("\r");
        }
     }
 

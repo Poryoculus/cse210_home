@@ -10,7 +10,7 @@ public class Reflection : Activity
 
     public Reflection(List<string> prompt, List<string> questions, int duration, string name, string description) : base(duration, name, description)
     {
-        
+
         _prompt = prompt;
         _questions = questions;
     }
@@ -18,8 +18,6 @@ public class Reflection : Activity
 
     public void RunActivity()
     {
-        Console.WriteLine("How long, in seconds, would you like for your session?");
-        _duration = int.Parse(Console.ReadLine());
 
         Console.Clear();
         Console.WriteLine("Get Ready...");
@@ -33,7 +31,7 @@ public class Reflection : Activity
 
         Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
 
-        string userInput = "";
+        string userInput = "as";
 
         while (true)
         {
@@ -53,20 +51,23 @@ public class Reflection : Activity
 
         //continue the acitivity
 
-        Console.Write("You may begin in:");
+        Console.Write("You may begin in: ");
         PauseCountDown(4);
 
         Console.Clear();
-        int sessionQuestions = (int)Math.Ceiling(_duration / 15.0);
+        
+        int sessionQuestions = (int)Math.Ceiling(_duration / 10.0);
         while (sessionQuestions != 0)
-        {
+        { 
             DisplayQuestion();
             DisplaySpinner(10);
             sessionQuestions -= 1;
-            Console.WriteLine(" ");
-        }
+        } 
+        
+
         DisplayClosingMessage();
     }
+    
     
     public string GetRandomPrompt()
     {
@@ -100,8 +101,8 @@ public class Reflection : Activity
 
     public void QuestionsGenerator()
     {
-        string ListOfPrompt = "ReflectionQuestions.txt";
-        string[] lines = File.ReadAllLines(ListOfPrompt);
+        string ListOfQuestions = "ReflectionQuestions.txt";
+        string[] lines = File.ReadAllLines(ListOfQuestions);
 
         foreach (string line in lines)
             {

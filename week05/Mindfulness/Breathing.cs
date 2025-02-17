@@ -31,7 +31,7 @@ public class Breathing : Activity
         while (sessionPeriods != 0)
         {
             
-            Console.Write("Breath in");
+            Console.Write("\nBreath in");
             Console.Write("...");
             PauseCountDown(4);
 
@@ -42,6 +42,7 @@ public class Breathing : Activity
             sessionPeriods -= 1;
 
         }
+        DisplayClosingMessage();
 
 
     }

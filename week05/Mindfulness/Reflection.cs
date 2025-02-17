@@ -55,8 +55,7 @@ public class Reflection : Activity
 
         //continue the acitivity
 
-        Console.Write("You may begin in: ");
-        PauseCountDown(4);
+        
 
         Console.Clear();
         
@@ -65,6 +64,11 @@ public class Reflection : Activity
             Console.WriteLine("Session duration must be greater than ten.");
             return;
         }
+        
+
+        Console.Write("You may begin in: ");
+        PauseCountDown(4); 
+        Console.Clear();
 
         int sessionQuestions = (int)Math.Ceiling(_duration / 10.0);
 
@@ -72,6 +76,7 @@ public class Reflection : Activity
         { 
             DisplayQuestion();
             DisplaySpinner(10);
+            
             sessionQuestions -= 1;
         } 
         
@@ -123,6 +128,9 @@ public class Reflection : Activity
     public void DisplayQuestion()
     {
         string question = GetRandomQuestion();
-        Console.WriteLine($"> {question}");
+        Console.Write($"> {question} ");
+        Console.WriteLine(" ");
+        
+
     }
 }

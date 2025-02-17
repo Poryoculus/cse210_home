@@ -30,9 +30,10 @@ public class Activity
             Console.Write("\b \b"); // Erase previous character
 
             index = (index + 1) % spinnerChars.Length; // Cycle through spinner chars
-            timeElapsed += 200;
-            Console.Write("\r");
+            timeElapsed += 500;
+            Console.Write("\r");    
        }
+
     }
 
 
@@ -43,15 +44,15 @@ public class Activity
         Console.WriteLine($"\nThis activity will help you {_description}");
 
         Console.WriteLine("\nHow long, in seconds, would you like for your session?(it must be greater than 10 seconds): ");
-        _duration = Console.Read();
+        _duration = int.Parse(Console.ReadLine());
     }
 
     public void DisplayClosingMessage()
     {
-        Console.WriteLine("Well Done!!");
+        Console.WriteLine("\nWell Done!!");
         DisplaySpinner(2);
-        Console.WriteLine($"You completed another {_duration} seconds of the {_name}");
-        Thread.Sleep(5000);
+        Console.WriteLine($"\nYou completed another {_duration} seconds of the {_name}");
+        DisplaySpinner(5);
     }
 
     public void PauseCountDown(int seconds)

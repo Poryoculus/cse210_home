@@ -1,5 +1,6 @@
 using System;
 using System.Reflection.Metadata;
+using System.Diagnostics;
 
 public class Listing : Activity
 {
@@ -19,37 +20,44 @@ public class Listing : Activity
         
         
         PromptGenerator();
-        string _prompt = GetRandomPrompt();
+        string selectedPrompt = GetRandomPrompt();
         Console.Clear();
         Console.WriteLine("Get Ready...");
         DisplaySpinner(2);
         
         Console.WriteLine("List as many responses you can to the following prompt: ");
-        Console.Write(" ---- ");
-        
-        Console.Write(_prompt);
-        Console.Write(" ---- ");
+        Console.WriteLine($" ---- {selectedPrompt} ---- ");
 
         List<string> userResponses = new List<string>();
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(_duration);
+        DateTime futureTime = DateTime.Now.AddSeconds(_duration);
 
+        Stopwatch stopwatch = new Stopwatch();
         Thread.Sleep(3000);
         
-        DateTime currentTime = DateTime.Now;
-        while (startTime < futureTime)
+        Console.Write("You will start in: ");
+        PauseCountDown(5);
+
+
+        stopwatch.Start(); // Start the timer
+        Console.WriteLine("\n\n");
+        while (stopwatch.Elapsed.Seconds < _duration)
         {
             Console.Write("> ");
             string response = Console.ReadLine();
             if (!string.IsNullOrWhiteSpace(response))
             {
                 userResponses.Add(response);
-            }
-            _count += 1;
-            
-        }
+                _count += 1;
 
-        
+            }
+
+        }
+        stopwatch.Stop(); 
+
+        SaveLog(selectedPrompt, userResponses);
+        Console.WriteLine($"\n You listed {_count} items");
+
+        DisplayClosingMessage();
 
 
     }
@@ -72,7 +80,19 @@ public class Listing : Activity
             } 
     }
 
-    
+    private void SaveLog(string prompt, List<string> responses)
+    {
+        string logFilePath = "ListingLog.txt";
+        using (StreamWriter writer = new StreamWriter(logFilePath, true))
+        {
+            writer.WriteLine($"[{DateTime.Now}]: Prompt: {prompt}");
+            foreach (string response in responses)
+            {
+                writer.WriteLine($"- {response}");
+            }
+            writer.WriteLine("-----\n");
+        }
+    }
     
 }   
 

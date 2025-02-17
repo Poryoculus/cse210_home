@@ -26,7 +26,7 @@ class Program
             //Breathing Activity
             if (UserPrompt == 1)
             {
-                Breathing myBreathing = new Breathing(30, "Breathing Activity", "This activity will help you relax and focus by guiding you through controlled breathing exercises,promoting a sense of calm and reducing stress.");
+                Breathing myBreathing = new Breathing(0, "Breathing Activity", "This activity will help you relax and focus by guiding you through controlled breathing exercises,promoting a sense of calm and reducing stress.");
                 myBreathing.DisplayWelcomeMessage();
                 myBreathing.RunActivity();
 
@@ -39,7 +39,7 @@ class Program
                 List<string> questions = new List<string>();
 
                 
-                int duration = 30; 
+                int duration = 0; 
                 string name = "Reflection Activity";
                 string description = "This activity will help you reflect on your experiences, gain insight into your personal growth, and identify areas for improvement";
 

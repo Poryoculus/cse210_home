@@ -8,6 +8,7 @@ public class Program
         User currentUser = null;
         
         int choice = 0;
+        
         //Login menu
         while (true)
         {
@@ -28,15 +29,15 @@ public class Program
                     Console.Write("Introduce your password: ");
                     string password = Console.ReadLine();
                     
-                    
                     if(dataManager.AuthenticateUser(username, password) == null)
                     {
                         
-                        currentUser = dataManager.AuthenticateUser(username, password);
+                        
                         Console.WriteLine("try again.");
                     }
                     else 
                     {
+                        currentUser = dataManager.AuthenticateUser(username, password);
                         break;
                     }
                 }
@@ -75,7 +76,8 @@ public class Program
             
         }
         GoalManager goalManager = new GoalManager(currentUser);
-        goalManager.Start();
+        
+        
         
     //Eternal Quest Menu
         

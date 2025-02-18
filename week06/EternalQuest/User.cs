@@ -7,7 +7,7 @@ public class User
     public string _username;
     public string _password;
 
-    public List<Goal> _goals;
+    public List<Goal> _goals { get; set; } = new List<Goal>();
     public int _score;
 
     public User(string username, string password)

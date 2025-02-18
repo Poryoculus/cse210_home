@@ -7,13 +7,12 @@ using Newtonsoft.Json;
 public class GoalManager
 {
     private User _user;
-    private string _filePath = "user_goals.json";
     private DataManager _dataManager;
 
     public GoalManager(User user)
     {
-        _user = user;
-        
+        _user = user  ;
+        _dataManager = new DataManager();
     }
 
     public void Start()
@@ -21,26 +20,7 @@ public class GoalManager
         Console.WriteLine($"Welcome, {_user._username} to your Eternal Quest Goal Manager" );
     }
 
-    public void EnterUsernameAndPassword()
-    {
-        Console.Write("Enter your username: ");
-        string username = Console.ReadLine();
-
-        Console.Write("Enter your password: ");
-        string password = Console.ReadLine();
-
-        _user = _dataManager.AuthenticateUser(username, password);
-
-        if (_user != null)
-        {
-            Console.WriteLine($"Hello, {_user._username}. You have successfully logged in.");
-            LoadGoals();
-        }
-        else
-        {
-            Console.WriteLine("Authentication failed. Please check your username or password.");
-        }
-    }
+  
 
     public void DisplayPlayerInfo()
     {
@@ -73,6 +53,7 @@ public class GoalManager
     {
         _user._goals.Add(newGoal);
         Console.WriteLine("Your goal was created");
+        _dataManager.AddOrUpdateUser(_user);
     }
     public void RecordEvent(int index)
     {
@@ -85,27 +66,7 @@ public class GoalManager
         Goal goal = _user._goals[index];
         goal.RecordEvent();
         _user._score += goal.Points;
-        SaveGoals();
-
-
+        _dataManager.AddOrUpdateUser(_user);
     }
-    public void SaveGoals()
-    {
-        string json = JsonConvert.SerializeObject(_user._goals, Formatting.Indented);
-        File.WriteAllText(_filePath, json);
-    }
-
-    public void LoadGoals()
-    {
-        if (!File.Exists(_filePath))
-    {
-        _user._goals = new List<Goal>(); 
-        return;
-    }
-
-    string json = File.ReadAllText(_filePath);
-    _user._goals = JsonConvert.DeserializeObject<List<Goal>>(json);
-    }
-    
 
 }

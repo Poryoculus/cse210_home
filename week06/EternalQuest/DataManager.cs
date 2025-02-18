@@ -9,10 +9,15 @@ public class DataManager
 
     // Save user data to JSON
     public void SaveUsers(List<User> users)
+{
+    var settings = new JsonSerializerSettings
     {
-        string json = JsonConvert.SerializeObject(users, Formatting.Indented);
-        File.WriteAllText(_filePath, json);
-    }
+        TypeNameHandling = TypeNameHandling.Auto,
+        Formatting = Formatting.Indented
+    };
+    string json = JsonConvert.SerializeObject(users, settings);
+    File.WriteAllText(_filePath, json);
+}
 
     // Load user data from JSON
     public List<User> LoadUsers()
@@ -23,7 +28,11 @@ public class DataManager
         }
 
         string json = File.ReadAllText(_filePath);
-        var users =JsonConvert.DeserializeObject<List<User>>(json);
+        var settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.Auto
+        };
+        var users = JsonConvert.DeserializeObject<List<User>>(json, settings);
 
         return users ?? new List<User>(); 
     }

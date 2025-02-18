@@ -2,11 +2,31 @@
   {
     "_username": "rodric",
     "_password": "1234",
+    "_score": 315550,
     "_goals": [
       {
-        "Points": 100
+        "$type": "SimpleGoal, EternalQuest",
+        "_isComplete": true,
+        "Points": 300,
+        "Description": "amar más a las personas que están a mi alrededor",
+        "Name": "amar más "
+      },
+      {
+        "$type": "EternalGoal, EternalQuest",
+        "Points": 50,
+        "Description": "read 30 minutes everyday",
+        "Name": "read the scriptures"
+      },
+      {
+        "$type": "ChecklistGoal, EternalQuest",
+        "_AmountCompleted": 5,
+        "_target": 3,
+        "_bonus": 100000,
+        "bonus": 100000,
+        "Points": 103000,
+        "Description": "más codigo",
+        "Name": "me falta terminar esto"
       }
-    ],
-    "_score": 0
+    ]
   }
 ]

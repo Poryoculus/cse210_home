@@ -1,15 +1,20 @@
 using System;
-
+using Newtonsoft.Json;
 public class ChecklistGoal : Goal
 {
-
-    private int _AmountCompleted;
+    [JsonProperty] 
+    private int _amountCompleted;
+    [JsonProperty] 
     private int _target;
+    [JsonProperty]
     private int _bonus;
 
+    public int bonus => _bonus;
+    
+    
     public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
     {
-        _AmountCompleted = 0; 
+        _amountCompleted = 0; 
         _target = target;
         _bonus = bonus;
     }
@@ -19,17 +24,17 @@ public class ChecklistGoal : Goal
     {
         if (isComplete() == false)
         { 
-            return $"[] {_shortName} ({_description}) --- Currently Completed: {_AmountCompleted}/{_target} "; 
+            return $"[] {_shortName} ({_description}) --- Currently Completed: {_amountCompleted}/{_target} "; 
         }
         else
         {
-            {return $"[X] {_shortName} ({_description}) --- Currently Completed: {_AmountCompleted}/{_target}";}
+            {return $"[X] {_shortName} ({_description}) --- Currently Completed: {_amountCompleted}/{_target}";}
         }
     }   
 
-    public override bool isComplete()
+    public override bool IsComplete()
     {
-        if (_AmountCompleted == _target)
+        if (_amountCompleted == _target)
         {
             return true;
         }
@@ -41,11 +46,23 @@ public class ChecklistGoal : Goal
 
     public override void RecordEvent()
     {
-        _AmountCompleted++;
+        if (IsComplete())
+        {
+            Console.WriteLine("This goal is already complete.");
+            return;
+        }
 
-        if (isComplete())
+        _amountCompleted++;
+
+        if (IsComplete())
         {
             Console.WriteLine($"Goal completed! Bonus {_bonus} points awarded!");
+            AddPoints(_bonus + _points);  // Adds both base points and bonus.
+        }
+        else
+        {
+            Console.WriteLine($"You won {_points} points!");
+            AddPoints(_points);
         }
     }
 }

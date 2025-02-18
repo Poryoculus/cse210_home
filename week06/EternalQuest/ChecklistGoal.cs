@@ -17,6 +17,7 @@ public class ChecklistGoal : Goal
         _amountCompleted = 0; 
         _target = target;
         _bonus = bonus;
+        _noMorePoints = false;
     }
     
 
@@ -32,37 +33,29 @@ public class ChecklistGoal : Goal
         }
     }   
 
-    public override bool IsComplete()
+    public override bool isComplete()
     {
-        if (_amountCompleted == _target)
-        {
-            return true;
-        }
-        else
-        {
-            return false; 
-        }
+        return _amountCompleted >= _target;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
-        if (IsComplete())
+        _amountCompleted++;
+        if (isComplete())
         {
             Console.WriteLine("This goal is already complete.");
-            return;
+            if (_noMorePoints)
+            {
+                return 0;
+            }
+            return _points + bonus;
+            
         }
-
-        _amountCompleted++;
-
-        if (IsComplete())
+        
+        
+        else 
         {
-            Console.WriteLine($"Goal completed! Bonus {_bonus} points awarded!");
-            AddPoints(_bonus + _points);  // Adds both base points and bonus.
-        }
-        else
-        {
-            Console.WriteLine($"You won {_points} points!");
-            AddPoints(_points);
+            return _points;
         }
     }
 }

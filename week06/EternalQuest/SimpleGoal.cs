@@ -10,6 +10,7 @@ public class SimpleGoal : Goal
     public SimpleGoal(string name, string description, int points) : base (name, description, points)
     {
         _isComplete = false;
+        _noMorePoints = false;
     }
 
     public override string GetStringRepresentation()
@@ -27,11 +28,22 @@ public class SimpleGoal : Goal
         return _isComplete;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
+       if (_noMorePoints)
+       {
+        return 0;
+       }
+       
        _isComplete = true;
+       _noMorePoints = true;
         Console.WriteLine($"Goal completed: {_shortName}");
 
+        return _points;
+
+
+
     }
+
 
 }

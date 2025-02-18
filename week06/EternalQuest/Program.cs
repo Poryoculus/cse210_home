@@ -1,4 +1,10 @@
 using System;
+// Okay, this assignment was really interesting to learn new things
+//my exceding requirements are: a Json file loader and saver, a Login to create a user and save every
+//progress in that user account without using the save and load options but automatically. 
+//That's the general, i learned a lot of this assignment
+
+
 
 public class Program
 {

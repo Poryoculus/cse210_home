@@ -1,31 +1,34 @@
 [
   {
     "_username": "rodric",
-    "_password": "1234",
-    "_score": 315550,
+    "_password": "123",
+    "_score": 1260,
     "_goals": [
       {
         "$type": "SimpleGoal, EternalQuest",
         "_isComplete": true,
-        "Points": 300,
-        "Description": "amar más a las personas que están a mi alrededor",
-        "Name": "amar más "
+        "_shortName": "ajdhajsd",
+        "_description": "aksdjakdaljsd",
+        "_points": 1000,
+        "_noMorePoints": true
       },
       {
         "$type": "EternalGoal, EternalQuest",
-        "Points": 50,
-        "Description": "read 30 minutes everyday",
-        "Name": "read the scriptures"
+        "_shortName": "lkajdlkajsd",
+        "_description": "love love love",
+        "_points": 30,
+        "_noMorePoints": false
       },
       {
         "$type": "ChecklistGoal, EternalQuest",
-        "_AmountCompleted": 5,
-        "_target": 3,
-        "_bonus": 100000,
-        "bonus": 100000,
-        "Points": 103000,
-        "Description": "más codigo",
-        "Name": "me falta terminar esto"
+        "_amountCompleted": 7,
+        "_target": 100,
+        "_bonus": 100,
+        "_shortName": "leveling",
+        "_description": "per person",
+        "_points": 20,
+        "_noMorePoints": false,
+        "bonus": 100
       }
     ]
   }

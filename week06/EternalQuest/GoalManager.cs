@@ -64,8 +64,9 @@ public class GoalManager
             return;
         }
         Goal goal = _user._goals[index];
-        goal.RecordEvent();
-        _user._score += goal.Points;
+        
+        _user._score += goal.RecordEvent();
+        
         _dataManager.AddOrUpdateUser(_user);
     }
 

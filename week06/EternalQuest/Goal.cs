@@ -1,13 +1,17 @@
+using System;
+using Newtonsoft.Json;
 
 public abstract class Goal
 {
+    [JsonProperty]
     protected string _shortName;
+    [JsonProperty]
     protected string _description;
-    protected int _points; // i change it to an int because how i'll save the data i don't need it to be a str (JSON file)
 
-    public int Points => _points; // I created this to not make more complicated the code and protect the data points
-    public string Description => _description;
-    public string Name => _shortName;
+    [JsonProperty]
+    protected int _points; // i change it to an int because how i'll save the data i don't need it to be a str (JSON file)
+    [JsonProperty]
+    protected bool _noMorePoints;
     public Goal(string name, string description, int points)
     {
         _shortName = name;
@@ -15,7 +19,7 @@ public abstract class Goal
         _points = points;
     }
 
-    public abstract void RecordEvent();
+    public abstract int RecordEvent();
     public abstract bool isComplete();
     public virtual string GetDetailsString()
     {
@@ -27,6 +31,8 @@ public abstract class Goal
     {
         return _shortName;
     }
+
+    
 
 
 }

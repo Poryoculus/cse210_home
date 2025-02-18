@@ -3,10 +3,12 @@ using System;
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
+    private bool _isSimple;
 
     public SimpleGoal(string name, string description, int points) : base (name, description, points)
     {
         _isComplete = false;
+        _isSimple = true;
     }
 
     public override string GetStringRepresentation()

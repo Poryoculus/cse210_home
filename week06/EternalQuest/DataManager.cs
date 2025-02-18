@@ -23,7 +23,7 @@ public class DataManager
         }
 
         string json = File.ReadAllText(_filePath);
-        var users = JsonConvert.DeserializeObject<List<User>>(json);
+        var users =JsonConvert.DeserializeObject<List<User>>(json);
 
         return users ?? new List<User>(); 
     }
